@@ -1,0 +1,204 @@
+#root {
+  width: 80%;
+  height: 60%;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  background: wheat;
+}
+
+.menu-page {
+  width: 100%;
+  height: 100%;
+  padding: 40px 20px 20px 20px;
+  text-align: center;
+}
+
+.title {
+  width: 80%;
+  font-size: 1.7em;
+  margin: auto;
+  margin-bottom: 60px;
+  text-shadow: 5px 5px 8px white;
+}
+
+.settings {
+  width: 90%;
+  margin: 0 auto 30px auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.settings h1 {
+  width: 49%;
+  margin: 4px;
+  background: rgb(216, 198, 165);
+  border-radius: 8px;
+  font-size: 1.3em;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.settings h1 input,
+.settings h1 select {
+  flex: 1;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.start-game {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  background: rgb(214, 157, 50);
+  color: white;
+  cursor: pointer;
+}
+
+.start-game:hover {
+  background: rgb(238, 172, 48);
+}
+
+.loading {
+  position: absolute;
+  top: 68.5%;
+  left: 55%;
+}
+
+.question-field {
+  width: 100%;
+  height: 100%;
+  padding: 40px 20px 20px 20px;
+  text-align: center;
+}
+
+.question-field h1 {
+  width: 80%;
+  min-height: 140px;
+  margin: auto;
+  font-size: 1.7em;
+  margin-bottom: 30px;
+  background: rgb(216, 198, 165);
+  padding: 30px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.options {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.options h3 {
+  width: 49%;
+  margin: 3px;
+  padding: 20px;
+  background: rgb(216, 198, 165);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.options h3:hover {
+  background: rgb(212, 190, 148);
+}
+
+.game-end {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-end h1 {
+  font-size: 1.7em;
+  margin-bottom: 40px;
+}
+
+.game-end button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  background: rgb(214, 157, 50);
+  color: white;
+  cursor: pointer;
+}
+
+.game-end button:hover {
+  background: rgb(238, 172, 48);
+}
+
+@media screen and (min-width: 1360px) {
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .settings {
+    margin-bottom: 50px;
+  }
+
+  .settings h1 {
+    font-size: 1.5rem;
+    padding: 15px;
+    align-items: center;
+  }
+
+  .settings h1 input,
+  .settings h1 select {
+    border: none;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 1.4rem;
+    border-radius: 5px;
+  }
+
+  .start-game {
+    font-size: 2rem;
+  }
+
+  .loading {
+    transform: translate(1em, 0em);
+    font-size: 2rem;
+  }
+
+  .question-field h1 {
+    min-height: 45%;
+    font-size: 3rem;
+  }
+
+  .options {
+    justify-content: center;
+  }
+
+  .options h3 {
+    width: 49%;
+    font-size: 2rem;
+    margin: 3px;
+    padding: 35px;
+    background: rgb(216, 198, 165);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .game-end button {
+    font-size: 2rem;
+  }
+
+  .game-end {
+    text-align: center;
+    font-size: 2rem;
+  }
+}

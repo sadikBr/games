@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+  font-size: 7.5vmin;
+  user-select: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #444;
+}
+
+.game-grid {
+  --board-size: 4;
+  --cell-size: 20vmin;
+  --grid-gap: 2vmin;
+  background-color: #aaa;
+  display: grid;
+  grid-template-columns: repeat(var(--board-size), var(--cell-size));
+  grid-template-rows: repeat(var(--board-size), var(--cell-size));
+  gap: var(--grid-gap);
+  padding: var(--grid-gap);
+  border-radius: 1vmin;
+  position: relative;
+}
+
+.cell {
+  background-color: #ccc;
+  border-radius: 1vmin;
+}
+
+.tile {
+  --x: 3;
+  --y: 3;
+  position: absolute;
+  top: calc(var(--y) * (var(--cell-size) + var(--grid-gap)) + var(--grid-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--grid-gap)) + var(--grid-gap));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(200, 50%, 80%);
+  font-weight: bold;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 1vmin;
+  animation: show 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}

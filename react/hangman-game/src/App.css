@@ -1,0 +1,169 @@
+.app {
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  margin: auto;
+  background-color: rgb(154, 47, 248);
+}
+
+.header {
+  padding-top: 20px;
+}
+
+.letters {
+  width: 60%;
+  height: auto;
+  margin: 10px auto 10px auto;
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+}
+
+.letters button {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  outline: none;
+  border: 0;
+  text-transform: uppercase;
+  background: rgb(247, 105, 247);
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+.letters button:hover {
+  background: rgb(250, 72, 250);
+}
+
+.main {
+  width: 70%;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  height: 150px;
+  text-align: center;
+}
+
+.container h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.category {
+  padding: 12px 24px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.word {
+  font-size: 1.5rem;
+  flex: 1;
+  text-transform: uppercase;
+}
+
+.word span {
+  display: inline-block;
+  width: 40px;
+  margin: 2px;
+  border-bottom: 2px solid rgb(250, 72, 250);
+}
+
+.output {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+}
+
+.reset {
+  position: absolute;
+  bottom: -120px;
+  right: 0;
+}
+
+.reset span {
+  padding: 12px 24px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.reset button {
+  margin: 10px;
+  padding: 12px 24px;
+  font-size: 1.5rem;
+  outline: none;
+  border: 0;
+  text-transform: uppercase;
+  background: rgb(247, 105, 247);
+  color: white;
+  cursor: pointer;
+}
+
+.reset button:hover {
+  background: rgb(250, 72, 250);
+}
+
+.popup {
+  width: 300px;
+  height: auto;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 0 0 5px 5px;
+  position: absolute;
+  right: 50px;
+  transform: translateY(-100%);
+}
+
+.showPopup {
+  animation: animate 2s ease-in-out;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(-100%);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .letters {
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  body {
+    overflow: visible;
+  }
+
+  .app {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  .letters {
+    bottom: -42%;
+  }
+}

@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Dancing Script";
+}
+
+body {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.main h1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+}
+
+.game-board {
+  width: 280px;
+  height: 280px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.matched {
+  background: rgba(0, 255, 0, 0.1);
+  border: 3px solid green;
+}
+
+.mismatched {
+  background: rgba(255, 0, 0, 0.1);
+  border: 3px solid red;
+}
+
+.visible {
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  cursor: not-allowed;
+}
+
+.reset {
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -80%);
+}
