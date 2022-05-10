@@ -77,19 +77,19 @@ body {
 
 .key {
   cursor: pointer;
-  width: 10vmin;
-  height: 8vmin;
+  width: 8vmin;
+  height: 6vmin;
   background: var(--clr-char-hidden);
   color: white;
-  font-size: 3vmin;
+  font-size: 2vmin;
   font-weight: bold;
   text-align: center;
-  line-height: 8vmin;
+  line-height: 6vmin;
   border-radius: 3px;
 }
 
 .key.wide {
-  width: 15vmin;
+  width: 12vmin;
 }
 
 .key.exists {
@@ -116,7 +116,7 @@ body {
 }
 
 .game-result {
-  font-size: 12vmin;
+  font-size: 5vmin;
   text-align: center;
   margin-bottom: 3rem;
   color: var(--clr-bg);
@@ -128,10 +128,10 @@ body {
 
 .reset-btn {
   cursor: pointer;
-  padding: 2rem 5rem;
+  padding: 4vmin 8vmin;
   border: none;
   background: var(--clr-bg);
   color: var(--clr-char-hidden);
-  font-size: 2vmin;
+  font-size: 3vmin;
   font-weight: bold;
 }

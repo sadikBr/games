@@ -128,9 +128,9 @@ function submitWord(word) {
 }
 
 function submitCharacter(word, char) {
-  guessedChars.push(char);
+  guessedChars.push(char.toLowerCase());
   word.querySelector(`div.char:nth-child(${letterCount + 1})`).textContent =
-    char;
+    char.toLowerCase();
 
   letterCount++;
 }
