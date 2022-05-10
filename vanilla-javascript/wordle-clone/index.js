@@ -17,6 +17,7 @@ function handleClick(event) {
   } else if (letterCount === 5 && clicked === 'ENTER') {
     submitWord(word);
   } else {
+    if (clicked === 'ENTER') return;
     submitCharacter(word, clicked, event.target.textContent.charCodeAt(0));
   }
 }
@@ -127,7 +128,6 @@ function submitWord(word) {
 }
 
 function submitCharacter(word, char, keyCode) {
-  console.log(keyCode);
   if (!between(keyCode, 65, 90) || letterCount === 5) return;
   guessedChars.push(char.toLowerCase());
   word.querySelector(`div.char:nth-child(${letterCount + 1})`).textContent =
