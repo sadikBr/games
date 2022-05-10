@@ -14,7 +14,7 @@ function handleClick(event) {
 
   if (clicked === '<=') {
     deleteLastChar(word);
-  } else if (clicked === 'ENTER') {
+  } else if (letterCount === 5 && clicked === 'ENTER') {
     submitWord(word);
   } else {
     submitCharacter(word, clicked, event.target.textContent.charCodeAt(0));
