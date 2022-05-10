@@ -17,13 +17,9 @@ function handleClick(event) {
   } else if (clicked === 'ENTER') {
     submitWord(word);
   } else {
-    submitCharacter(word, clicked);
+    submitCharacter(word, clicked, event.target.textContent.charCodeAt(0));
   }
 }
-
-document.querySelectorAll('.key').forEach((key) => {
-  key.addEventListener('click', handleClick);
-});
 
 function init() {
   resultScreen.style.display = 'none';
@@ -48,6 +44,10 @@ function init() {
   guessedChars = [];
 
   document.addEventListener('keydown', keyDownHandler);
+
+  document.querySelectorAll('.key').forEach((key) => {
+    key.addEventListener('click', handleClick);
+  });
 }
 
 function getRandomWord(list) {
@@ -68,9 +68,8 @@ function keyDownHandler(event) {
     deleteLastChar(word);
     return;
   }
-  if (!between(event.keyCode, 65, 90) || letterCount === 5) return;
 
-  submitCharacter(word, event.key);
+  submitCharacter(word, event.key, event.keyCode);
 }
 
 function deleteLastChar(word) {
@@ -127,7 +126,9 @@ function submitWord(word) {
   attempt++;
 }
 
-function submitCharacter(word, char) {
+function submitCharacter(word, char, keyCode) {
+  console.log(keyCode);
+  if (!between(keyCode, 65, 90) || letterCount === 5) return;
   guessedChars.push(char.toLowerCase());
   word.querySelector(`div.char:nth-child(${letterCount + 1})`).textContent =
     char.toLowerCase();
