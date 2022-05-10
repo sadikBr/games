@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="./words.js"></script>
+    <script src="index.js" defer></script>
+    <title>Wordle Clone</title>
+  </head>
+  <body>
+    <div class="result-screen">
+      <h1 class="game-result">You Won</h1>
+      <button onclick="init();" class="reset-btn">Restart Game</button>
+    </div>
+
+    <div class="game-container">
+      <!-- display board -->
+      <div class="board">
+        <div class="board__row">
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+        </div>
+        <div class="board__row">
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+        </div>
+        <div class="board__row">
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+        </div>
+        <div class="board__row">
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+        </div>
+        <div class="board__row">
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+        </div>
+        <div class="board__row">
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+          <div class="char"></div>
+        </div>
+      </div>
+
+      <!-- Keyboard -->
+      <div class="keyboard">
+        <div class="keyboard__row">
+          <div id="q" class="key">Q</div>
+          <div id="w" class="key">W</div>
+          <div id="e" class="key">E</div>
+          <div id="r" class="key">R</div>
+          <div id="t" class="key">T</div>
+          <div id="y" class="key">Y</div>
+          <div id="u" class="key">U</div>
+          <div id="i" class="key">I</div>
+          <div id="o" class="key">O</div>
+          <div id="p" class="key">P</div>
+        </div>
+        <div class="keyboard__row">
+          <div id="a" class="key">A</div>
+          <div id="s" class="key">S</div>
+          <div id="d" class="key">D</div>
+          <div id="f" class="key">F</div>
+          <div id="g" class="key">G</div>
+          <div id="h" class="key">H</div>
+          <div id="j" class="key">J</div>
+          <div id="k" class="key">K</div>
+          <div id="l" class="key">L</div>
+        </div>
+        <div class="keyboard__row">
+          <div class="key wide">ENTER</div>
+          <div id="z" class="key">Z</div>
+          <div id="x" class="key">X</div>
+          <div id="c" class="key">C</div>
+          <div id="v" class="key">V</div>
+          <div id="b" class="key">B</div>
+          <div id="n" class="key">N</div>
+          <div id="m" class="key">M</div>
+          <div class="key wide"><=</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
