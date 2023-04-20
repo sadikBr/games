@@ -1,0 +1,88 @@
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.header,
+.footer {
+  padding: 1rem;
+  display: flex;
+}
+
+.header {
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border-bottom: 1px solid rgb(65, 63, 63);
+  margin-bottom: 1rem;
+}
+
+.footer {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.game-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.board {
+  display: grid;
+  gap: 0.35rem;
+  grid-template-columns: repeat(5, 8vh);
+  grid-template-rows: repeat(6, 8vh);
+}
+
+.board-cell {
+  border: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.keyboard-btn {
+  cursor: pointer;
+  padding: 1.5vmin 3vmin;
+  min-width: 9vmin;
+  font-size: 2vmin;
+  border: none;
+  outline: none;
+}
+
+.correct {
+  background: green;
+  border-color: green;
+  outline: green;
+}
+
+.wrong {
+  background: rgb(65, 65, 65);
+  border-color: rgb(65, 65, 65);
+  outline: rgb(65, 65, 65);
+}
+
+.valid {
+  background: orange;
+  border-color: orange;
+  outline: orange;
+}
