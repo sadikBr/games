@@ -3,11 +3,6 @@ import * as THREE from 'three';
 import * as dat from 'dat.gui';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const mousePosition = {
-  x: 0,
-  y: 0,
-};
-
 class DatGUI {
   interface: dat.GUI;
 
@@ -45,6 +40,7 @@ class World {
   objects: Map<string, THREE.Mesh>;
   interface: DatGUI;
   frameCount: number;
+  mousePosition: THREE.Vector2;
 
   constructor() {
     this.scene = new THREE.Scene();
@@ -55,7 +51,7 @@ class World {
       0.1,
       1000
     );
-    this.camera.position.z = 50;
+    this.camera.position.z = 150;
     this.scene.add(this.camera);
 
     this.renderer = new THREE.WebGLRenderer({
@@ -65,6 +61,7 @@ class World {
     this.renderer.setSize(innerWidth, innerHeight);
     this.objects = new Map();
 
+    this.mousePosition = new THREE.Vector2(0, 0);
     this.interface = new DatGUI();
     this.frameCount = 0;
 
@@ -80,11 +77,28 @@ class World {
 
     // Start Animating the world
     this.animate();
+    this.setupMouseEventListener();
   }
 
   addObject(name: string, object: THREE.Mesh) {
     this.objects.set(name, object);
     this.scene.add(object);
+  }
+
+  updateColor(
+    color: any,
+    face: THREE.Face,
+    newColor: { r: number; g: number; b: number }
+  ) {
+    for (const key in face) {
+      if (key === 'a' || key === 'b' || key === 'c') {
+        color.setX(face[key], newColor.r);
+        color.setY(face[key], newColor.g);
+        color.setZ(face[key], newColor.b);
+      }
+    }
+
+    color.needsUpdate = true;
   }
 
   animate() {
@@ -93,10 +107,7 @@ class World {
 
     const plane = this.objects.get('plane');
     if (plane != undefined) {
-      this.raycaster.setFromCamera(
-        new THREE.Vector2(mousePosition.x, mousePosition.y),
-        this.camera
-      );
+      this.raycaster.setFromCamera(this.mousePosition, this.camera);
 
       // @ts-ignore
       const { array, originalPosition, randomValues } =
@@ -128,68 +139,31 @@ class World {
 
         // @ts-ignore
         const { color } = intersects[0].object.geometry.attributes;
-
-        // Vertex 1
-        // @ts-ignore
-        color.setX(intersects[0].face.a, hoverColor.r);
-        // @ts-ignore
-        color.setY(intersects[0].face.a, hoverColor.g);
-        // @ts-ignore
-        color.setZ(intersects[0].face.a, hoverColor.b);
-
-        // Vertex 2
-        // @ts-ignore
-        color.setX(intersects[0].face.b, hoverColor.r);
-        // @ts-ignore
-        color.setY(intersects[0].face.b, hoverColor.g);
-        // @ts-ignore
-        color.setZ(intersects[0].face.b, hoverColor.b);
-
-        // Vertex 3
-        // @ts-ignore
-        color.setX(intersects[0].face.c, hoverColor.r);
-        // @ts-ignore
-        color.setY(intersects[0].face.c, hoverColor.g);
-        // @ts-ignore
-        color.setZ(intersects[0].face.c, hoverColor.b);
-
-        // @ts-ignore
-        intersects[0].object.geometry.attributes.color.needsUpdate = true;
+        this.updateColor(color, intersects[0].face as THREE.Face, hoverColor);
 
         gsap.to(hoverColor, {
           r: initialColor.r,
           g: initialColor.g,
           b: initialColor.b,
           onUpdate: () => {
-            // Vertex 1
-            // @ts-ignore
-            color.setX(intersects[0].face.a, hoverColor.r);
-            // @ts-ignore
-            color.setY(intersects[0].face.a, hoverColor.g);
-            // @ts-ignore
-            color.setZ(intersects[0].face.a, hoverColor.b);
-
-            // Vertex 2
-            // @ts-ignore
-            color.setX(intersects[0].face.b, hoverColor.r);
-            // @ts-ignore
-            color.setY(intersects[0].face.b, hoverColor.g);
-            // @ts-ignore
-            color.setZ(intersects[0].face.b, hoverColor.b);
-
-            // Vertex 3
-            // @ts-ignore
-            color.setX(intersects[0].face.c, hoverColor.r);
-            // @ts-ignore
-            color.setY(intersects[0].face.c, hoverColor.g);
-            // @ts-ignore
-            color.setZ(intersects[0].face.c, hoverColor.b);
+            this.updateColor(
+              color,
+              intersects[0].face as THREE.Face,
+              hoverColor
+            );
           },
         });
       }
     }
 
     this.renderer.render(this.scene, this.camera);
+  }
+
+  setupMouseEventListener() {
+    addEventListener('mousemove', (event) => {
+      this.mousePosition.x = (event.clientX / innerWidth) * 2 - 1;
+      this.mousePosition.y = (event.clientY / innerHeight) * -2 + 1;
+    });
   }
 
   resize() {
@@ -202,6 +176,7 @@ class World {
 
 const world = new World();
 
+// Plane creation code
 const plane = new THREE.Mesh(
   new THREE.PlaneGeometry(500, 500, 65, 65),
   new THREE.MeshPhongMaterial({
@@ -254,14 +229,31 @@ customizePlane(plane);
 
 world.addObject('plane', plane);
 
+// Starfield creation code
+for (let i = 0; i < 1000; i++) {
+  const star = new THREE.Mesh(
+    new THREE.SphereGeometry(Math.random() + 1, 20, 20),
+    new THREE.MeshBasicMaterial({
+      color: 0xffffff,
+    })
+  );
+
+  const r = 500 + Math.random() * 500;
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.random() * Math.PI;
+
+  star.position.set(
+    r * Math.sin(theta) * Math.cos(phi),
+    r * Math.sin(theta) * Math.sin(phi),
+    r * Math.cos(theta)
+  );
+
+  world.addObject(`star${i}`, star);
+}
+
 // Event listeners
 addEventListener('resize', () => {
   world.resize();
-});
-
-addEventListener('mousemove', (event) => {
-  mousePosition.x = (event.clientX / innerWidth) * 2 - 1;
-  mousePosition.y = (event.clientY / innerHeight) * -2 + 1;
 });
 
 // Dat.GUI interface
