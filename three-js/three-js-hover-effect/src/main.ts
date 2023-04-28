@@ -1,15 +1,53 @@
+import gsap from 'gsap';
 import * as THREE from 'three';
+import * as dat from 'dat.gui';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+const mousePosition = {
+  x: 0,
+  y: 0,
+};
+
+class DatGUI {
+  interface: dat.GUI;
+
+  constructor() {
+    this.interface = new dat.GUI();
+  }
+
+  addPlaneProperty(
+    obj: any,
+    name: string,
+    min: number,
+    max: number,
+    object: THREE.Mesh
+  ) {
+    this.interface.add(obj, name, min, max).onChange(() => {
+      object.geometry.dispose();
+
+      object.geometry = new THREE.PlaneGeometry(
+        obj.width,
+        obj.height,
+        obj.segments,
+        obj.segments
+      );
+
+      customizePlane(object);
+    });
+  }
+}
+
 class World {
+  raycaster: THREE.Raycaster;
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   renderer: THREE.WebGLRenderer;
   objects: Map<string, THREE.Mesh>;
+  interface: DatGUI;
 
   constructor() {
     this.scene = new THREE.Scene();
-
+    this.raycaster = new THREE.Raycaster();
     this.camera = new THREE.PerspectiveCamera(
       75,
       innerWidth / innerHeight,
@@ -26,14 +64,15 @@ class World {
     this.renderer.setSize(innerWidth, innerHeight);
     this.objects = new Map();
 
+    this.interface = new DatGUI();
+
     new OrbitControls(this.camera, this.renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight();
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
     this.scene.add(ambientLight);
 
-    const light = new THREE.SpotLight();
-    light.position.set(-5, 5, 5);
-    light.lookAt(new THREE.Vector3(0, 0, 0));
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(0, 0, 5);
     this.scene.add(light);
 
     // Start Animating the world
@@ -48,11 +87,89 @@ class World {
   animate() {
     requestAnimationFrame(() => this.animate());
 
-    const box = this.objects.get('box');
-    if (box != undefined) {
-      box.rotation.x += 0.02;
-      box.rotation.y += 0.02;
-      box.rotation.z += 0.02;
+    const plane = this.objects.get('plane');
+    if (plane != undefined) {
+      this.raycaster.setFromCamera(
+        new THREE.Vector2(mousePosition.x, mousePosition.y),
+        this.camera
+      );
+
+      const intersects = this.raycaster.intersectObject(plane);
+
+      if (intersects.length > 0) {
+        const initialColor = {
+          r: 0,
+          g: 0.025,
+          b: 0.2,
+        };
+
+        const hoverColor = {
+          r: 0.1,
+          g: 0.5,
+          b: 1,
+        };
+
+        // @ts-ignore
+        const { color } = intersects[0].object.geometry.attributes;
+
+        // Vertex 1
+        // @ts-ignore
+        color.setX(intersects[0].face.a, hoverColor.r);
+        // @ts-ignore
+        color.setY(intersects[0].face.a, hoverColor.g);
+        // @ts-ignore
+        color.setZ(intersects[0].face.a, hoverColor.b);
+
+        // Vertex 2
+        // @ts-ignore
+        color.setX(intersects[0].face.b, hoverColor.r);
+        // @ts-ignore
+        color.setY(intersects[0].face.b, hoverColor.g);
+        // @ts-ignore
+        color.setZ(intersects[0].face.b, hoverColor.b);
+
+        // Vertex 3
+        // @ts-ignore
+        color.setX(intersects[0].face.c, hoverColor.r);
+        // @ts-ignore
+        color.setY(intersects[0].face.c, hoverColor.g);
+        // @ts-ignore
+        color.setZ(intersects[0].face.c, hoverColor.b);
+
+        // @ts-ignore
+        intersects[0].object.geometry.attributes.color.needsUpdate = true;
+
+        gsap.to(hoverColor, {
+          r: initialColor.r,
+          g: initialColor.g,
+          b: initialColor.b,
+          onUpdate: () => {
+            // Vertex 1
+            // @ts-ignore
+            color.setX(intersects[0].face.a, hoverColor.r);
+            // @ts-ignore
+            color.setY(intersects[0].face.a, hoverColor.g);
+            // @ts-ignore
+            color.setZ(intersects[0].face.a, hoverColor.b);
+
+            // Vertex 2
+            // @ts-ignore
+            color.setX(intersects[0].face.b, hoverColor.r);
+            // @ts-ignore
+            color.setY(intersects[0].face.b, hoverColor.g);
+            // @ts-ignore
+            color.setZ(intersects[0].face.b, hoverColor.b);
+
+            // Vertex 3
+            // @ts-ignore
+            color.setX(intersects[0].face.c, hoverColor.r);
+            // @ts-ignore
+            color.setY(intersects[0].face.c, hoverColor.g);
+            // @ts-ignore
+            color.setZ(intersects[0].face.c, hoverColor.b);
+          },
+        });
+      }
     }
 
     this.renderer.render(this.scene, this.camera);
@@ -68,12 +185,64 @@ class World {
 
 const world = new World();
 
-const box = new THREE.Mesh(
-  new THREE.BoxGeometry(1, 1, 1),
-  new THREE.MeshStandardMaterial({ color: 'green' })
+const plane = new THREE.Mesh(
+  new THREE.PlaneGeometry(35, 35, 40, 40),
+  new THREE.MeshPhongMaterial({
+    // color: 'green',
+    side: THREE.DoubleSide,
+    flatShading: true,
+    vertexColors: true,
+  })
 );
-world.addObject('box', box);
 
+function customizePlane(plane: THREE.Mesh) {
+  // @ts-ignore
+  const { array } = plane.geometry.attributes.position;
+  for (let i = 0; i < array.length; i += 3) {
+    const x = array[i];
+    const y = array[i + 1];
+    const z = array[i + 2];
+
+    array[i] = x + Math.random() - 0.5;
+    array[i + 1] = y + Math.random() - 0.5;
+    array[i + 2] = z + Math.random() - 0.5;
+
+    // TODO: Do something here
+  }
+
+  const colors: number[] = [];
+  for (let i = 0; i < plane.geometry.attributes.position.count; i++) {
+    colors.push(0, 0.025, 0.2);
+  }
+  // @ts-ignore
+  plane.geometry.setAttribute(
+    'color',
+    new THREE.BufferAttribute(new Float32Array(colors), 3)
+  );
+}
+
+customizePlane(plane);
+
+world.addObject('plane', plane);
+
+// Event listeners
 addEventListener('resize', () => {
   world.resize();
 });
+
+addEventListener('mousemove', (event) => {
+  mousePosition.x = (event.clientX / innerWidth) * 2 - 1;
+  mousePosition.y = (event.clientY / innerHeight) * -2 + 1;
+});
+
+// Dat.GUI interface
+const worldObject = {
+  plane: {
+    width: 35,
+    height: 35,
+    segments: 40,
+  },
+};
+world.interface.addPlaneProperty(worldObject.plane, 'width', 10, 50, plane);
+world.interface.addPlaneProperty(worldObject.plane, 'height', 10, 50, plane);
+world.interface.addPlaneProperty(worldObject.plane, 'segments', 10, 50, plane);
