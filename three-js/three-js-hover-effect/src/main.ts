@@ -33,7 +33,7 @@ class DatGUI {
 }
 
 class World {
-  raycaster: THREE.Raycaster;
+  rayCaster: THREE.Raycaster;
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   renderer: THREE.WebGLRenderer;
@@ -44,7 +44,7 @@ class World {
 
   constructor() {
     this.scene = new THREE.Scene();
-    this.raycaster = new THREE.Raycaster();
+    this.rayCaster = new THREE.Raycaster();
     this.camera = new THREE.PerspectiveCamera(
       75,
       innerWidth / innerHeight,
@@ -107,7 +107,7 @@ class World {
 
     const plane = this.objects.get('plane');
     if (plane != undefined) {
-      this.raycaster.setFromCamera(this.mousePosition, this.camera);
+      this.rayCaster.setFromCamera(this.mousePosition, this.camera);
 
       // @ts-ignore
       const { array, originalPosition, randomValues } =
@@ -122,7 +122,7 @@ class World {
       }
       plane.geometry.attributes.position.needsUpdate = true;
 
-      const intersects = this.raycaster.intersectObject(plane);
+      const intersects = this.rayCaster.intersectObject(plane);
 
       if (intersects.length > 0) {
         const initialColor = {
