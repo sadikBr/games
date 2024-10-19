@@ -24,16 +24,14 @@ export default class Grid {
         );
 
         if (cell === 0) {
-          this.food.push(
-            new Food(this.context, {
-              x: cellIndex * CELL_SIZE + CELL_SIZE / 2,
-              y: rowIndex * CELL_SIZE + CELL_SIZE / 2,
-            })
-          );
+          const food = new Food(this.context, {
+            x: cellIndex * CELL_SIZE + CELL_SIZE / 2,
+            y: rowIndex * CELL_SIZE + CELL_SIZE / 2,
+          });
+          food.draw();
+          this.food.push(food);
         }
       });
     });
-
-    this.food.forEach((pieceOfFood: { draw: () => any }) => pieceOfFood.draw());
   }
 }
