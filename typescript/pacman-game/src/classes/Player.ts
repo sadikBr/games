@@ -1,4 +1,5 @@
-import { CELL_SIZE, EYE_POSITION, GRID, GRID_ROWS } from '../constants';
+import { CELL_SIZE, EYE_POSITION, GRID_ROWS } from '../constants';
+import Cell from './Cell';
 
 export default class Player {
   position: { x: number; y: number };
@@ -52,21 +53,30 @@ export default class Player {
     this.context.restore();
   }
 
-  move({ x, y }: { x: number; y: number }) {
-    const newX = this.position.x + x;
-    const newY = this.position.y + y;
+  move({ x, y }: { x: number; y: number }, grid: Cell[][], score: number) {
+    let newX = this.position.x + x;
+    let newY = this.position.y + y;
 
     if (newY < 0) {
       this.position.y = GRID_ROWS - 1;
+      if (grid[this.position.y][newX].hasFood) this.eatFood(grid, score);
       return;
     }
     if (newY >= GRID_ROWS) {
       this.position.y = 0;
+      if (grid[this.position.y][newX].hasFood) this.eatFood(grid, score);
       return;
     }
-    if (GRID[newY][newX] === 1) return;
+    if (grid[newY][newX].isWall) return;
 
-    this.position.x += x;
-    this.position.y += y;
+    this.position.x = newX;
+    this.position.y = newY;
+
+    if (grid[newY][newX].hasFood) this.eatFood(grid, score);
+  }
+
+  eatFood(grid: Cell[][], score: number) {
+    grid[this.position.y][this.position.x].hasFood = false;
+    score += 10;
   }
 }

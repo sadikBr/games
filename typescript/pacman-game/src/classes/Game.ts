@@ -9,6 +9,7 @@ export default class Game {
   player: Player;
   lastTime: number;
   fpsInterval: number;
+  score: number;
 
   constructor() {
     this.canvas = document.getElementById('game') as HTMLCanvasElement;
@@ -21,24 +22,26 @@ export default class Game {
     });
     this.lastTime = 0;
     this.fpsInterval = 1000 / 30;
+    this.score = 0;
 
     addEventListener('keydown', (event: KeyboardEvent) => {
+      console.log(this);
       switch (event.key) {
         case 'ArrowUp':
           this.player.heading = 1.5 * Math.PI;
-          this.player.move({ x: 0, y: -1 });
+          this.player.move({ x: 0, y: -1 }, this.grid.grid, this.score);
           break;
         case 'ArrowDown':
           this.player.heading = 0.5 * Math.PI;
-          this.player.move({ x: 0, y: 1 });
+          this.player.move({ x: 0, y: 1 }, this.grid.grid, this.score);
           break;
         case 'ArrowRight':
           this.player.heading = 0;
-          this.player.move({ x: 1, y: 0 });
+          this.player.move({ x: 1, y: 0 }, this.grid.grid, this.score);
           break;
         case 'ArrowLeft':
           this.player.heading = Math.PI;
-          this.player.move({ x: -1, y: 0 });
+          this.player.move({ x: -1, y: 0 }, this.grid.grid, this.score);
           break;
       }
     });
@@ -46,6 +49,7 @@ export default class Game {
 
   start() {
     this.draw(0);
+    this.player.eatFood(this.grid.grid, this.score);
   }
 
   draw(time: number) {

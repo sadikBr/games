@@ -1,0 +1,2 @@
+# Core Python requirements
+pillow>=9.0.0
