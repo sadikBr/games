@@ -1,6 +1,6 @@
 export default class GameOfLife {
-  canvas: HTMLCanvasElement;
-  context: CanvasRenderingContext2D;
+  private canvas: HTMLCanvasElement;
+  private context: CanvasRenderingContext2D;
 
   constructor() {
     this.canvas = document.getElementById("game-of-life") as HTMLCanvasElement;
