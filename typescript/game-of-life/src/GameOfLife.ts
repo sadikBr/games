@@ -43,6 +43,6 @@ export default class GameOfLife {
 
     window.setTimeout(() => {
       this.start();
-    }, 33);
+    }, 250);
   }
 }

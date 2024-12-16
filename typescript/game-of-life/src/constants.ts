@@ -1,2 +1,2 @@
-export const COLS = 55;
-export const ROWS = 35;
+export const COLS = 10;
+export const ROWS = 6;
