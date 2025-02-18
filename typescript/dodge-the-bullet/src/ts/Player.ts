@@ -6,15 +6,15 @@ function clamp(value: number, min: number, max: number) {
 
 export default class Player {
   #context: CanvasRenderingContext2D;
+  #playArea: PlayArea;
   width: number;
   position: { x: number; y: number };
-  playArea: PlayArea;
 
   constructor(context: CanvasRenderingContext2D, playArea: PlayArea) {
     this.#context = context;
     this.width = 80;
     this.position = { x: 0, y: 0 };
-    this.playArea = playArea;
+    this.#playArea = playArea;
 
     this.update();
   }
@@ -24,8 +24,8 @@ export default class Player {
       const { clientX, clientY } = event;
 
       // Get the play area coordinates
-      const topleft = this.playArea.topleft;
-      const bottomright = this.playArea.bottomright;
+      const topleft = this.#playArea.topleft;
+      const bottomright = this.#playArea.bottomright;
 
       this.position = {
         x: clamp(
