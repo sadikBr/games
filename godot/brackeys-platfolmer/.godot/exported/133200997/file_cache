@@ -1,0 +1,8 @@
+res://scenes/game.tscn::3aa28b33390adfcf4c49612e9853cc3f::1740074859::res://.godot/exported/133200997/export-c2a7af834e91ff64325daddf58e45dc0-game.scn
+res://scenes/player.tscn::edc4b9ce77edcd42140022a0280f6c74::1740074859::res://.godot/exported/133200997/export-234fb6894ec6226e856ab7f825500d3d-player.scn
+res://scenes/platform.tscn::4117a7b4c7c15186cc613d5de31c3338::1740074859::res://.godot/exported/133200997/export-cc2f727180cd42d9c13434cb55b1ce69-platform.scn
+res://scenes/coin.tscn::f90824cf0638105e33c37d99584c3e63::1740074859::res://.godot/exported/133200997/export-96b2131180b71dd158e52c5527d22dd4-coin.scn
+res://scenes/death_zone.tscn::3ce1e5fa19d166851755703597d73428::1740074859::res://.godot/exported/133200997/export-d0ec36877fe2f9185d0690c63c89487a-death_zone.scn
+res://scenes/enemy.tscn::93ff111491a5355af0a3c38c7aa181d3::1740074859::res://.godot/exported/133200997/export-a930820ec0ab16db6719aff4daa500f9-enemy.scn
+res://scenes/music.tscn::cab6071559353075e3d2f6fc11833d3a::1740074050::res://.godot/exported/133200997/export-bfd8027ae1117ff610be6f2619a76089-music.scn
+res://default_bus_layout.tres::db2d0bf1055b574a9dad706d634c5035::1740073963::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://p0o0qgq4t3cj"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_t18y7"]
+[ext_resource type="PackedScene" uid="uid://dm0imsxty8tqi" path="res://scenes/snake_segment.tscn" id="2_dct1r"]
+[ext_resource type="Texture2D" uid="uid://p5xo3rbll0us" path="res://assets/bg.png" id="2_yqe1f"]
+[ext_resource type="PackedScene" uid="uid://bu44u8eqmv58" path="res://scenes/hud.tscn" id="3_1kuih"]
+[ext_resource type="Texture2D" uid="uid://iqopo6x764n5" path="res://assets/apple.png" id="5_t6ikm"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_t18y7")
+snake_scene = ExtResource("2_dct1r")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(500, 550)
+texture = ExtResource("2_yqe1f")
+region_rect = Rect2(1.35797, 3.13069, 992.885, 990.032)
+
+[node name="Hud" parent="." instance=ExtResource("3_1kuih")]
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Apple" type="Sprite2D" parent="."]
+texture = ExtResource("5_t6ikm")
+offset = Vector2(25, 25)
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

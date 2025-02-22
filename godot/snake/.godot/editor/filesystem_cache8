@@ -1,0 +1,12 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1740233467
+::res://assets/::1740165909
+apple.png::CompressedTexture2D::595418402281388260::1740165842::1740165909::1::::<><>::
+bg.png::CompressedTexture2D::1116186976116652422::1740165834::1740165909::1::::<><>::
+MaldiniBold.ttf::FontFile::7051596772748408479::1740165826::1740165909::1::::<><>::
+::res://scenes/::1740178158
+game.tscn::PackedScene::1105337631577261605::1740178158::0::1::::<><>::res://scripts/game.gd<>uid://dm0imsxty8tqi::::res://scenes/snake_segment.tscn<>uid://p5xo3rbll0us::::res://assets/bg.png<>uid://bu44u8eqmv58::::res://scenes/hud.tscn<>uid://iqopo6x764n5::::res://assets/apple.png
+hud.tscn::PackedScene::113290081181866001::1740178158::0::1::::<><>::uid://c7p31eq5qoq6r::::res://assets/MaldiniBold.ttf
+snake_segment.tscn::PackedScene::8053645765903645468::1740178158::0::1::::<><>::
+::res://scripts/::1740178153
+game.gd::GDScript::-1::1740178153::0::1::::<>Node<>::
