@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://2hi0nx2kn780"]
+
+[ext_resource type="Texture2D" uid="uid://o23p6c7u1qge" path="res://assets/restart.png" id="1_bwv6x"]
+[ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="1_r7024"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msydf"]
+bg_color = Color(1.50409e-07, 0.0442337, 0.187563, 1)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_r7024")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_msydf")
+
+[node name="GameOverLabel" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 146.0
+offset_bottom = 614.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 124
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 319.0
+offset_top = 489.0
+offset_right = 568.0
+offset_bottom = 583.0
+icon = ExtResource("1_bwv6x")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

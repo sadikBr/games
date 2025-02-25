@@ -1,0 +1,10 @@
+Timer
+Label
+CanvasLayer
+CollisionShape2D
+Area2D
+StaticBody2D
+Sprite2D
+ColorRect
+CharacterBody2D
+Node

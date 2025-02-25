@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbmuxe800ij6y"]
+
+[ext_resource type="Texture2D" uid="uid://cyyo11qp2j1ed" path="res://assets/bg.png" id="1_78mtm"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_kd0jv"]
+[ext_resource type="Texture2D" uid="uid://bhv4qwts1qxu0" path="res://assets/ground.png" id="2_xopm7"]
+[ext_resource type="PackedScene" uid="uid://17d0lpmk2iav" path="res://scenes/bird.tscn" id="3_dgnmu"]
+[ext_resource type="Script" path="res://scripts/bird.gd" id="4_p7krk"]
+[ext_resource type="PackedScene" uid="uid://2hi0nx2kn780" path="res://scenes/game_over_menu.tscn" id="6_on731"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnpqr"]
+size = Vector2(1728, 165)
+
+[node name="Game" type="Node"]
+script = ExtResource("1_kd0jv")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_78mtm")
+centered = false
+
+[node name="Ground" type="Area2D" parent="."]
+position = Vector2(864, 852)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+texture = ExtResource("2_xopm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_vnpqr")
+
+[node name="Bird" parent="." instance=ExtResource("3_dgnmu")]
+position = Vector2(62, 436)
+script = ExtResource("4_p7krk")
+
+[node name="GameOverMenu" parent="." instance=ExtResource("6_on731")]
+process_mode = 2
+
+[connection signal="body_entered" from="Ground" to="." method="_on_ground_body_entered"]
+[connection signal="restart" from="GameOverMenu" to="." method="_on_game_over_menu_restart"]

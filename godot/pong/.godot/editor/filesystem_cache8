@@ -1,3 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1740165501
+::res://::1740419655
 icon.svg::CompressedTexture2D::260851795803372173::1740165497::1740165502::1::::<><>::
+::res://assets/::1740420380
+Bg.png::CompressedTexture2D::5990709446937425458::1740420336::1740420382::1::::<><>::
+pixel_font.ttf::FontFile::2194973460332465400::1740420345::1740420382::1::::<><>::
+::res://scenes/::1740420199
+game.tscn::PackedScene::4053568630958902170::1740420199::0::1::::<><>::uid://d1n8myprnfe23::::res://scenes/paddle.tscn<>uid://t1hnw4lyl6uv::::res://scenes/ball.tscn
+paddle.tscn::PackedScene::9013035271281520666::1740420199::0::1::::<><>::
+ball.tscn::PackedScene::1387711285843660209::1740420199::0::1::::<><>::
+::res://scripts/::1740419639

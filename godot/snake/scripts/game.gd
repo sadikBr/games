@@ -4,6 +4,7 @@ extends Node
 @onready var hud: CanvasLayer = $Hud
 @onready var move_timer: Timer = $MoveTimer
 @onready var apple: Sprite2D = $Apple
+@onready var game_over_menu: CanvasLayer = $GameOverMenu
 
 # Game variables
 var score: int
@@ -32,21 +33,21 @@ var left: Vector2 = Vector2(-1, 0)
 var right: Vector2 = Vector2(1, 0)
 
 # Custom Functions
-func add_segment(pos):
+func add_segment(pos) -> void:
 	snake_data.append(pos)
 	var SnakeSegment = snake_scene.instantiate()
 	SnakeSegment.position = (pos * cell_size) + Vector2(0, cell_size)
 	add_child(SnakeSegment)
 	snake.append(SnakeSegment)
 
-func generate_snake():
+func generate_snake() -> void:
 	old_data.clear()
 	snake_data.clear()
 	snake.clear()
 	for i in range(3):
 		add_segment(start_position + Vector2(0, i))
 
-func move_apple():
+func move_apple() -> void:
 	while regenerate_apple:
 		regenerate_apple = false
 		apple_position = Vector2(randi_range(0, cells - 1), randi_range(0, cells - 1))
@@ -56,10 +57,13 @@ func move_apple():
 	apple.position = (apple_position * cell_size) + Vector2(0, cell_size)
 	regenerate_apple = true
 
-func update_score():
+func update_score() -> void:
 	hud.get_node("ScoreLabel").text = "Score: " + str(score)
 
-func new_game():
+func new_game() -> void:
+	get_tree().paused = false
+	get_tree().call_group("segments", "queue_free")
+	game_over_menu.hide()
 	score = 0
 	update_score()
 	move_direction = up
@@ -67,7 +71,7 @@ func new_game():
 	generate_snake()
 	move_apple()
 
-func move_snake():
+func move_snake() -> void:
 	if can_move:
 		if Input.is_action_just_pressed("down") and move_direction != up:
 			move_direction = down
@@ -90,13 +94,15 @@ func move_snake():
 			if not game_started:
 				start_game()
 
-func start_game():
+func start_game() -> void:
 	game_started = true
 	move_timer.start()
 
-func end_game():
-	print("Game Over!")
-	pass
+func end_game() -> void:
+	game_over_menu.show()
+	move_timer.stop()
+	game_started = false
+	get_tree().paused = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -106,16 +112,16 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	move_snake()
 
-func check_out_of_bounds():
+func check_out_of_bounds() -> void:
 	if snake_data[0].x < 0 or snake_data[0].x > cells - 1 or snake_data[0].y < 0 or snake_data[0].y > cells - 1:
 		end_game()
 
-func check_self_eaten():
-	for i in range(len(snake_data)):
+func check_self_eaten() -> void:
+	for i in range(1, len(snake_data)):
 		if snake_data[0] == snake_data[i]:
 			end_game()
 
-func check_apple_eaten():
+func check_apple_eaten() -> void:
 	if snake_data[0] == apple_position:
 		add_segment(old_data[-1])
 		score += 1
@@ -133,3 +139,6 @@ func _on_move_timer_timeout() -> void:
 	check_out_of_bounds()
 	check_self_eaten()
 	check_apple_eaten()
+
+func _on_game_over_menu_restart() -> void:
+	new_game()

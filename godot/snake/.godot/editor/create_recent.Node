@@ -1,6 +1,7 @@
+Button
+Label
+Panel
+CanvasLayer
 Sprite2D
 Timer
-Panel
-Label
-CanvasLayer
 Node
