@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbmuxe800ij6y"]
+[gd_scene load_steps=10 format=3 uid="uid://bbmuxe800ij6y"]
 
 [ext_resource type="Texture2D" uid="uid://cyyo11qp2j1ed" path="res://assets/bg.png" id="1_78mtm"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_kd0jv"]
 [ext_resource type="Texture2D" uid="uid://bhv4qwts1qxu0" path="res://assets/ground.png" id="2_xopm7"]
 [ext_resource type="PackedScene" uid="uid://17d0lpmk2iav" path="res://scenes/bird.tscn" id="3_dgnmu"]
 [ext_resource type="Script" path="res://scripts/bird.gd" id="4_p7krk"]
+[ext_resource type="Script" path="res://scripts/ground.gd" id="4_qikd0"]
 [ext_resource type="PackedScene" uid="uid://2hi0nx2kn780" path="res://scenes/game_over_menu.tscn" id="6_on731"]
+[ext_resource type="PackedScene" uid="uid://bf2lmllk1gaty" path="res://scenes/pipes.tscn" id="7_3pmk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnpqr"]
 size = Vector2(1728, 165)
@@ -17,8 +19,27 @@ script = ExtResource("1_kd0jv")
 texture = ExtResource("1_78mtm")
 centered = false
 
+[node name="PipesContainer" type="Node" parent="."]
+
+[node name="Pipes" parent="PipesContainer" instance=ExtResource("7_3pmk4")]
+position = Vector2(408, 539)
+
+[node name="Pipes2" parent="PipesContainer" instance=ExtResource("7_3pmk4")]
+position = Vector2(644, 446)
+
+[node name="Pipes3" parent="PipesContainer" instance=ExtResource("7_3pmk4")]
+position = Vector2(864, 583)
+
+[node name="Pipes4" parent="PipesContainer" instance=ExtResource("7_3pmk4")]
+position = Vector2(1085, 310)
+
+[node name="Pipes5" parent="PipesContainer" instance=ExtResource("7_3pmk4")]
+position = Vector2(1325, 489)
+
 [node name="Ground" type="Area2D" parent="."]
+z_index = 1
 position = Vector2(864, 852)
+script = ExtResource("4_qikd0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 texture = ExtResource("2_xopm7")
@@ -28,11 +49,17 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_vnpqr")
 
 [node name="Bird" parent="." instance=ExtResource("3_dgnmu")]
-position = Vector2(62, 436)
+position = Vector2(114, 346)
 script = ExtResource("4_p7krk")
 
 [node name="GameOverMenu" parent="." instance=ExtResource("6_on731")]
 process_mode = 2
+visible = false
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="Ground" to="." method="_on_ground_body_entered"]
 [connection signal="restart" from="GameOverMenu" to="." method="_on_game_over_menu_restart"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
