@@ -1,7 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1740764825
+::res://::1740846503
 icon.svg::CompressedTexture2D::8200777082718370961::1740764570::1740764576::1::::<><>::
-::res://assets/::1740764819
+::res://assets/::1740847932
 chess-board-cells.png::CompressedTexture2D::3587837779286286376::1740764756::1740764767::1::::<><>::
 chess-pieces.png::CompressedTexture2D::2663470491004838491::1740764811::1740764819::1::::<><>::
-::res://scenes/::1740764825
+possible_catch.png::CompressedTexture2D::353599417832859584::1740847932::1740847936::1::::<><>::
+possible_move.png::CompressedTexture2D::5483879519506275619::1740847885::1740847936::1::::<><>::
+::res://scenes/::1740847813
+game.tscn::PackedScene::7848127622384710429::1740847813::0::1::::<><>::uid://brd8ftviegx57::::res://assets/chess-board-cells.png<>uid://bd7g78e7b30h0::::res://assets/chess-pieces.png<>res://scripts/pieces.gd
+::res://scripts/::1740847803
+pieces.gd::GDScript::-1::1740847803::0::1::::<>TileMapLayer<>::
