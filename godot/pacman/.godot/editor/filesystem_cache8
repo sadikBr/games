@@ -1,3 +1,16 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1740517951
-icon.svg::CompressedTexture2D::1727754633013226362::1740517946::1740517952::1::::<><>::
+::res://::1740596857
+::res://assets/::1740602481
+pac man death.png::CompressedTexture2D::9015658070144495285::1740602336::1740602607::1::::<><>::
+pac man life counter.png::CompressedTexture2D::851136233697784966::1740602336::1740602607::1::::<><>::
+pac man movement.png::CompressedTexture2D::1366223869730649613::1740602336::1740602607::1::::<><>::
+pill.png::CompressedTexture2D::3567292115586702912::1740602336::1740602607::1::::<><>::
+power pill.png::CompressedTexture2D::815655363336011220::1740602336::1740602607::1::::<><>::
+spr cherry.png::CompressedTexture2D::7814272760289575947::1740602336::1740602607::1::::<><>::
+tiles set.png::CompressedTexture2D::8088273326435713677::1740602336::1740602607::1::::<><>::
+::res://scenes/::1740598779
+game.tscn::PackedScene::6524137846290509685::1740598778::0::1::::<><>::uid://botqpobn00ims::::res://scenes/player.tscn<>uid://e6di5b3qw6sl::::res://scenes/enemy.tscn
+player.tscn::PackedScene::3409286668242294658::1740598778::0::1::::<><>::uid://cjufw0fmrcufj::::res://assets/pacman-assets.png<>res://scripts/player.gd
+enemy.tscn::PackedScene::344949100797304283::1740598779::0::1::::<><>::uid://cjufw0fmrcufj::::res://assets/pacman-assets.png
+::res://scripts/::1740598371
+player.gd::GDScript::-1::1740598371::0::1::::<>CharacterBody2D<>::

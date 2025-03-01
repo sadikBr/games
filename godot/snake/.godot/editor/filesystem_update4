@@ -1,6 +1,1 @@
-res://scenes/game_over_menu.tscn
-res://scenes/game.tscn
-res://scenes/hud.tscn
-res://scenes/snake_segment.tscn
-res://scripts/game_over_menu.gd
 res://scripts/game.gd
