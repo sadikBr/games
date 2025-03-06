@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var game_over_menu: CanvasLayer = $"../../GameOverMenu"
+@onready var game: Node = $"../.."
+@onready var game_over_score: Label = $"../../GameOverMenu/GameOverScore"
 
 const SCROLL_SPEED = 150
 
@@ -14,6 +16,7 @@ func _process(delta: float) -> void:
 
 func game_over():
 	get_tree().paused = true
+	game_over_score.text = "Score: " + str(game.score)
 	game_over_menu.show()
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
@@ -21,3 +24,6 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 
 func _on_area_2d_2_body_entered(_body: Node2D) -> void:
 	game_over()
+
+func _on_score_area_body_exited(body: Node2D) -> void:
+	game.update_score()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://2hi0nx2kn780"]
 
 [ext_resource type="Texture2D" uid="uid://o23p6c7u1qge" path="res://assets/restart.png" id="1_bwv6x"]
-[ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="1_r7024"]
+[ext_resource type="Script" uid="uid://dllpc3v8v6xbh" path="res://scripts/game_over_menu.gd" id="1_r7024"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msydf"]
 bg_color = Color(1.50409e-07, 0.0442337, 0.187563, 1)
@@ -28,11 +28,20 @@ text = "Game Over!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameOverScore" type="Label" parent="."]
+offset_top = 485.0
+offset_right = 864.0
+offset_bottom = 591.0
+theme_override_font_sizes/font_size = 48
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="RestartButton" type="Button" parent="."]
-offset_left = 319.0
-offset_top = 489.0
-offset_right = 568.0
-offset_bottom = 583.0
+offset_left = 314.0
+offset_top = 645.0
+offset_right = 563.0
+offset_bottom = 739.0
 icon = ExtResource("1_bwv6x")
 icon_alignment = 1
 expand_icon = true

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://bbmuxe800ij6y"]
 
 [ext_resource type="Texture2D" uid="uid://cyyo11qp2j1ed" path="res://assets/bg.png" id="1_78mtm"]
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_kd0jv"]
+[ext_resource type="Script" uid="uid://dgq53xu2eu1wk" path="res://scripts/game.gd" id="1_kd0jv"]
 [ext_resource type="Texture2D" uid="uid://bhv4qwts1qxu0" path="res://assets/ground.png" id="2_xopm7"]
 [ext_resource type="PackedScene" uid="uid://17d0lpmk2iav" path="res://scenes/bird.tscn" id="3_dgnmu"]
-[ext_resource type="Script" path="res://scripts/bird.gd" id="4_p7krk"]
-[ext_resource type="Script" path="res://scripts/ground.gd" id="4_qikd0"]
+[ext_resource type="Script" uid="uid://bnf4fuqlc2kjs" path="res://scripts/bird.gd" id="4_p7krk"]
+[ext_resource type="Script" uid="uid://cdj06tj7w8wij" path="res://scripts/ground.gd" id="4_qikd0"]
 [ext_resource type="PackedScene" uid="uid://2hi0nx2kn780" path="res://scenes/game_over_menu.tscn" id="6_on731"]
 [ext_resource type="PackedScene" uid="uid://bf2lmllk1gaty" path="res://scenes/pipes.tscn" id="7_3pmk4"]
 
@@ -54,11 +54,39 @@ script = ExtResource("4_p7krk")
 
 [node name="GameOverMenu" parent="." instance=ExtResource("6_on731")]
 process_mode = 2
-visible = false
 
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_right = 169.0
+offset_bottom = 58.0
+grow_horizontal = 2
+
+[node name="ScoreLabel" type="Label" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Ground" to="." method="_on_ground_body_entered"]
 [connection signal="restart" from="GameOverMenu" to="." method="_on_game_over_menu_restart"]

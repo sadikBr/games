@@ -1,11 +1,5 @@
 res://scenes/game.tscn
 res://scenes/paddle.tscn
 res://scenes/ball.tscn
-res://scenes/border.tscn
 res://scenes/borders.tscn
 res://scenes/score_area.tscn
-res://scripts/game.gd
-res://scripts/player.gd
-res://scripts/ai.gd
-res://scripts/ball.gd
-res://scripts/borders.gd
