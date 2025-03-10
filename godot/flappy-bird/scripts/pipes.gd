@@ -5,6 +5,7 @@ extends Node2D
 @onready var game_over_score: Label = $"../../GameOverMenu/GameOverScore"
 
 const SCROLL_SPEED = 150
+var score_counted = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -25,5 +26,6 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 func _on_area_2d_2_body_entered(_body: Node2D) -> void:
 	game_over()
 
-func _on_score_area_body_exited(body: Node2D) -> void:
-	game.update_score()
+func _on_score_area_body_entered(body: Node2D) -> void:
+	if body.name == "Bird":
+		game.update_score()
