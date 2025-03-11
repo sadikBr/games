@@ -1,0 +1,5 @@
+res://sierpinski-triangle/sierpinski_triangle.tscn
+res://mandlebrot-set/mandlebrot_set.tscn
+res://mandelbrot-set/mandelbrot_set.tscn
+res://dragon-curve/dragon_curve.tscn
+res://sierpinski-triangle/sierpinski-triangle.gd
