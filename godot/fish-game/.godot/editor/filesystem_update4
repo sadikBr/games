@@ -1,0 +1,4 @@
+res://scenes/game.tscn
+res://scripts/player.gd
+res://scenes/player.tscn
+res://scenes/breath_effect.tscn
