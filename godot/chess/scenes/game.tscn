@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://brd8ftviegx57" path="res://assets/chess-board-cells.png" id="1_wnbit"]
 [ext_resource type="Texture2D" uid="uid://bd7g78e7b30h0" path="res://assets/chess-pieces.png" id="2_26tj8"]
-[ext_resource type="Script" path="res://scripts/pieces.gd" id="3_py22r"]
+[ext_resource type="Script" uid="uid://cv2vva6nvvfy8" path="res://scripts/pieces.gd" id="3_py22r"]
 [ext_resource type="Texture2D" uid="uid://ckeoxu25s3yjr" path="res://assets/possible_move.png" id="3_v2unx"]
 [ext_resource type="Texture2D" uid="uid://fbjy30n1r4yu" path="res://assets/possible_catch.png" id="4_egq4l"]
 
