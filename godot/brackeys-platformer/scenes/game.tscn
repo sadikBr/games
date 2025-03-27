@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=4 uid="uid://bda2thmq818my"]
 
 [ext_resource type="PackedScene" uid="uid://c4pycivm1kgy7" path="res://scenes/player.tscn" id="1_ldoin"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_pqvq3"]
+[ext_resource type="Script" uid="uid://d2mldsmsk5xai" path="res://scripts/game_manager.gd" id="1_pqvq3"]
 [ext_resource type="Texture2D" uid="uid://c61huhg1vebru" path="res://assets/sprites/world_tileset.png" id="2_ydpuu"]
 [ext_resource type="PackedScene" uid="uid://11gubkpgwbor" path="res://scenes/platform.tscn" id="3_jvg35"]
 [ext_resource type="PackedScene" uid="uid://caeqwd6tx8ldt" path="res://scenes/coin.tscn" id="4_2lke2"]
@@ -218,8 +218,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3mpt5"]
 _data = {
-"RESET": SubResource("Animation_tpj8w"),
-"move": SubResource("Animation_wvhdi")
+&"RESET": SubResource("Animation_tpj8w"),
+&"move": SubResource("Animation_wvhdi")
 }
 
 [node name="Game" type="Node2D"]
@@ -341,7 +341,7 @@ position = Vector2(370, 53)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
 libraries = {
-"": SubResource("AnimationLibrary_3mpt5")
+&"": SubResource("AnimationLibrary_3mpt5")
 }
 autoplay = "move"
 

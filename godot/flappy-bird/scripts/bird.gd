@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("flap") and not is_on_floor():
+	if Input.is_action_just_pressed("flap") and not is_on_floor() and get_parent().game_started:
 		velocity.y = FLY_VELOCITY
 		falling = false
 

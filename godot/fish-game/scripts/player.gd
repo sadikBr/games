@@ -8,7 +8,6 @@ func _process(delta: float) -> void:
 		target_position = get_global_mouse_position()
 		look_at(target_position)
 
-	
 	if target_position:		
 		if target_position.x < position.x:
 			$Sprite2D.flip_v = true

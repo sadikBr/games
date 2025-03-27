@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cr68payev8f1l"]
 
 [ext_resource type="FontFile" uid="uid://c7p31eq5qoq6r" path="res://assets/MaldiniBold.ttf" id="1_hd3bm"]
-[ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="1_ln24h"]
+[ext_resource type="Script" uid="uid://cmm32sx5hblfo" path="res://scripts/game_over_menu.gd" id="1_ln24h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbiag"]
 bg_color = Color(3.18866e-07, 0.148816, 0.211582, 1)

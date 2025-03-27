@@ -20,7 +20,7 @@ func get_random_direction() -> Vector2:
 
 func new_ball() -> void:
 	# Randomize start position and direction.
-	position = Vector2(window_size.x / 2, randi_range(250, window_size.y - 250))
+	position = Vector2(window_size.x / 2.0, randf_range(250, window_size.y - 250))
 	speed = BALL_START_SPEED
 	direction = get_random_direction()
 

@@ -1,0 +1,8 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1743083168
+::res://scenes/::1743037691
+planet.tscn::PackedScene::5401029287457099228::1743037691::0::1::::<><><>0<>0<><>::uid://bpk0e58vjici4::::res://shaders/terrain.gdshader<>uid://biwxkl5yywiri::::res://scripts/planet.gd
+::res://scripts/::1743037690
+planet.gd::GDScript::2994762717383733658::1743037690::0::1::::<>Node3D<><>0<>0<><>::
+::res://shaders/::1743037712
+terrain.gdshader::Shader::3461423811444503781::1743037712::0::1::::<><><>0<>0<><>::
