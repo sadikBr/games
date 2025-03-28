@@ -1,0 +1,8 @@
+res://scenes/game.tscn
+res://scenes/ship.tscn
+res://scripts/ship.gd
+res://scenes/lazer.tscn
+res://scripts/lazer.gd
+res://scenes/astroid.tscn
+res://scripts/astroid.gd
+res://scripts/game.gd

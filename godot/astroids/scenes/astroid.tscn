@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cufxik1p6i1j2"]
+
+[ext_resource type="Script" uid="uid://jq0it7p2sxoa" path="res://scripts/astroid.gd" id="1_1b6ih"]
+[ext_resource type="Texture2D" uid="uid://bxw3pn3bff1c2" path="res://assets/sprites/meteors/spaceMeteors_001.png" id="1_rbjxg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1b6ih"]
+radius = 103.586
+
+[node name="Astroid" type="Area2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_1b6ih")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rbjxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1b6ih")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

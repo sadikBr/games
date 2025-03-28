@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8mnjopdbiqda"]
+
+[ext_resource type="Script" uid="uid://b1qmlx3nhddj2" path="res://scripts/ship.gd" id="1_2gnfn"]
+[ext_resource type="Texture2D" uid="uid://45ixt2qqox36" path="res://assets/sprites/ships/ship.png" id="1_q631a"]
+[ext_resource type="PackedScene" uid="uid://bx4es2b262e1u" path="res://scenes/lazer.tscn" id="2_4tobq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2gnfn"]
+radius = 18.1108
+
+[node name="Ship" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_2gnfn")
+lazer_scene = ExtResource("2_4tobq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_q631a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 0)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_2gnfn")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(24, 0)
+
+[node name="RateOfFire" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="RateOfFire" to="." method="_on_rate_of_fire_timeout"]
