@@ -1,0 +1,13 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1743875661
+icon.svg::CompressedTexture2D/CompressedTexture2D::6225339843289371780::1743867084::1743867088::1::::<><><>0<>0<>0f56447ff54f2697088729975bb5038e<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://scenes/::1743875646
+death_zone.tscn::PackedScene::6847786381162822841::1743875646::0::1::::<><><>0<>0<><>::uid://xlt1iud8j0oc::::res://scripts/death_zone.gd
+enemy.tscn::PackedScene::9156475652721987646::1743875646::0::1::::<><><>0<>0<><>::uid://bou8d7onmwdih::::res://scripts/enemy.gd
+game.tscn::PackedScene::2087802721883216191::1743875646::0::1::::<><><>0<>0<><>::uid://gd61xa2r55e::::res://scenes/player.tscn<>uid://cphg2xe38rubj::::res://scripts/game.gd<>uid://d3pp20s2rghww::::res://scenes/enemy.tscn<>uid://c4tebnwivt3of::::res://scenes/death_zone.tscn
+player.tscn::PackedScene::12625178288100080::1743875646::0::1::::<><><>0<>0<><>::uid://xtgkrs20igvq::::res://scripts/player.gd
+::res://scripts/::1743875643
+death_zone.gd::GDScript::1638252063737170426::1743875351::0::1::::<>Area2D<><>0<>0<><>::
+enemy.gd::GDScript::3412362770831789363::1743875120::0::1::::<>CharacterBody2D<><>0<>0<><>::
+game.gd::GDScript::5840538400160390547::1743875608::0::1::::<>Node<><>0<>0<><>::
+player.gd::GDScript::1653949662861447202::1743875643::0::1::::<>CharacterBody2D<><>0<>0<><>::

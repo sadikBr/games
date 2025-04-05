@@ -18,7 +18,6 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 window/size/viewport_width=1000
 window/size/viewport_height=1050
-window/size/borderless=true
 window/stretch/mode="canvas_items"
 
 [input]

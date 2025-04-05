@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://40l2nrcmt8r8"]
+
+[ext_resource type="PackedScene" uid="uid://gd61xa2r55e" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://cphg2xe38rubj" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://d3pp20s2rghww" path="res://scenes/enemy.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c4tebnwivt3of" path="res://scenes/death_zone.tscn" id="4_lbhrr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cj0n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwrxv"]
+size = Vector2(2, 346)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
+size = Vector2(350, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(2, 346)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(350, 2)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+normal = Vector2(0, 1)
+
+[node name="Game" type="Node"]
+script = ExtResource("1_yqjtg")
+enemy_scene = ExtResource("3_lbhrr")
+
+[node name="PlayerArea" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -175.0
+offset_right = 175.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(175, 175)
+theme_override_styles/panel = SubResource("StyleBoxFlat_8cj0n")
+
+[node name="Walls" type="StaticBody2D" parent="PlayerArea"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="right" type="CollisionShape2D" parent="PlayerArea/Walls"]
+position = Vector2(349, 175)
+shape = SubResource("RectangleShape2D_uwrxv")
+
+[node name="top" type="CollisionShape2D" parent="PlayerArea/Walls"]
+position = Vector2(175, 1)
+shape = SubResource("RectangleShape2D_yqjtg")
+
+[node name="left" type="CollisionShape2D" parent="PlayerArea/Walls"]
+position = Vector2(1, 175)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="bottom" type="CollisionShape2D" parent="PlayerArea/Walls"]
+position = Vector2(175, 349)
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(948, 530)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="BottomDeathZone" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(960, 1180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomDeathZone"]
+shape = SubResource("WorldBoundaryShape2D_iywne")
+
+[node name="TopDeathZone" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(960, -100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopDeathZone"]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="EnemySpawner" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="EnemySpawner" to="." method="_on_enemy_spawner_timeout"]

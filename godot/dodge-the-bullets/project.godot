@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Dodge The Bullets"
+run/main_scene="uid://40l2nrcmt8r8"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
+[global_group]
+
+enemies="The enemies group"
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Walls"
+2d_physics/layer_3="Enemy"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/stretch/mode="canvas_items"
+environment/size/viewport_height=720
+environment/size/viewport_width=1280

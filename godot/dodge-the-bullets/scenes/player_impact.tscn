@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb1cuhd3arf1q"]
+
+[sub_resource type="Curve" id="Curve_dwgdo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.617647, 0.0898877), -1.09149, -1.09149, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xosbc"]
+curve = SubResource("Curve_dwgdo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wm7y7"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = -339.3
+angle_max = 190.3
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_xosbc")
+
+[node name="PlayerImpact" type="GPUParticles2D"]
+scale = Vector2(10, 10)
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.42
+process_material = SubResource("ParticleProcessMaterial_wm7y7")
