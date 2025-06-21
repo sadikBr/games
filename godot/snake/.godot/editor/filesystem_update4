@@ -1,1 +1,4 @@
 res://scenes/game.tscn
+res://scenes/hud.tscn
+res://scenes/snake_segment.tscn
+res://scenes/game_over_menu.tscn

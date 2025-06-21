@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bb1cuhd3arf1q"]
 
 [sub_resource type="Curve" id="Curve_dwgdo"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.617647, 0.0898877), -1.09149, -1.09149, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.514706, 0.404494), -1.09149, -1.09149, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_xosbc"]
@@ -17,10 +17,13 @@ spread = 180.0
 initial_velocity_min = 5.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 10.0
 scale_curve = SubResource("CurveTexture_xosbc")
+color = Color(0, 0.878431, 0.368627, 1)
 
 [node name="PlayerImpact" type="GPUParticles2D"]
-scale = Vector2(10, 10)
+scale = Vector2(15, 15)
 emitting = false
 amount = 50
 lifetime = 0.5

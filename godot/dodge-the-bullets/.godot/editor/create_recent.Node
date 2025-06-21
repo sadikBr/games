@@ -1,5 +1,8 @@
-GPUParticles2D
+AudioStreamPlayer
 CollisionShape2D
+Sprite2D
+ProgressBar
+GPUParticles2D
 Area2D
 Timer
 CharacterBody2D

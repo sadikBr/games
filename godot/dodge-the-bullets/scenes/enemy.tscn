@@ -1,19 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3pp20s2rghww"]
+[gd_scene load_steps=5 format=3 uid="uid://d3pp20s2rghww"]
 
 [ext_resource type="Script" uid="uid://bou8d7onmwdih" path="res://scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://djt08d4n2qvpa" path="res://assets/enemy.png" id="2_md0e3"]
+[ext_resource type="PackedScene" uid="uid://bb1cuhd3arf1q" path="res://scenes/player_impact.tscn" id="3_4ra3w"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_8tegq"]
-radius = 5.0
-height = 10.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_8tegq"]
-radius = 5.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
+radius = 16.1245
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_7p1mj")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-mesh = SubResource("SphereMesh_8tegq")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_md0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_8tegq")
+shape = SubResource("CircleShape2D_4ra3w")
+
+[node name="PlayerImpact" parent="." instance=ExtResource("3_4ra3w")]

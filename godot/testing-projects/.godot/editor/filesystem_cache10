@@ -1,0 +1,16 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1746196232
+::res://dragon-curve/::1741973914
+dragon_curve.tscn::PackedScene/PackedScene::8301143015207385448::1741973914::0::1::::<><><>0<>0<><>::
+::res://hand-of-cards/::1744138830
+card.gd::GDScript::5693450304713407280::1744138809::0::1::::Card<>Node2D<><>0<>0<><>::
+card.tscn::PackedScene::7713769832349373693::1744138830::0::1::::<><><>0<>0<><>::uid://cnd7kawxygiaa::::res://hand-of-cards/card.gd
+card_game.tscn::PackedScene::3137704012583030303::1744138830::0::1::::<><><>0<>0<><>::uid://onmgmulqyg7n::::res://hand-of-cards/game.gd<>uid://d1s7qb3uj2jab::::res://hand-of-cards/hand.tscn
+game.gd::GDScript::1010220702110269829::1744138778::0::1::::<>Node2D<><>0<>0<><>::
+hand.gd::GDScript::7193415897694459338::1744138642::0::1::::Hand<>Node2D<><>0<>0<><>::
+hand.tscn::PackedScene::9023302398411907213::1744138830::0::1::::<><><>0<>0<><>::uid://daqsrkinbcg4y::::res://hand-of-cards/hand.gd
+::res://mandelbrot-set/::1741973914
+mandelbrot_set.tscn::PackedScene/PackedScene::6735115089964967567::1741973914::0::1::::<><><>0<>0<><>::
+::res://sierpinski-triangle/::1741973914
+sierpinski-triangle.gd::GDScript/GDScript::1009704687532597572::1741973914::0::1::::<>ColorRect<><>0<>0<><>::
+sierpinski_triangle.tscn::PackedScene/PackedScene::5105214412268873691::1741973914::0::1::::<><><>0<>0<><>::uid://ondxoebf055y::::res://sierpinski-triangle/sierpinski-triangle.gd

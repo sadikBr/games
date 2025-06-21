@@ -1,7 +1,3 @@
-res://scenes/player.tscn
-res://scripts/player.gd
 res://scenes/game.tscn
+res://scenes/player.tscn
 res://scenes/enemy.tscn
-res://scenes/death_zone.tscn
-res://scripts/game.gd
-res://scenes/player_impact.tscn

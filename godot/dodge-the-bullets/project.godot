@@ -13,14 +13,18 @@ config_version=5
 config/name="Dodge The Bullets"
 run/main_scene="uid://40l2nrcmt8r8"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://tdwpg4tw03xr"
+
+[autoload]
+
+MainMusic="*res://scenes/main_music.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://ce8d1y7uq6g1j"
 
 [global_group]
 

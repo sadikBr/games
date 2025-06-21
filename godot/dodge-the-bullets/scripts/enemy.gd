@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var player: CharacterBody2D = $"../../Player"
 
-var enemy_speed: float = 200.0
+var enemy_speed: float = 220.0
 var new_velocity: Vector2
 
 func _physics_process(delta: float) -> void:

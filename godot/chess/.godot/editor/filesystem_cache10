@@ -1,12 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1743011151
+::res://::1746196299
 icon.svg::CompressedTexture2D/CompressedTexture2D::8200777082718370961::1741973914::1742044865::1::::<><><>0<>0<>2e64dcad97e5cc19a958a5dce652569f<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://assets/::1742044865
 chess-board-cells.png::CompressedTexture2D/CompressedTexture2D::3587837779286286376::1741973914::1742044865::1::::<><><>0<>0<>a0fb9a02fb989904e7a3c4bf8dcbcda3<>res://.godot/imported/chess-board-cells.png-802d8db461a3ee9c1042d7ef65f4ee41.ctex::
 chess-pieces.png::CompressedTexture2D/CompressedTexture2D::2663470491004838491::1741973914::1742044865::1::::<><><>0<>0<>4a6ad4792c287d2b3d38d49374170236<>res://.godot/imported/chess-pieces.png-3297ca05bf87aedc98ee029a992898ab.ctex::
 possible_catch.png::CompressedTexture2D/CompressedTexture2D::353599417832859584::1741973914::1742044865::1::::<><><>0<>0<>ba11df4cd8492f3f4d47f99fac0fa730<>res://.godot/imported/possible_catch.png-8b26cdb0ecb59f72910ae281e1f5d413.ctex::
 possible_move.png::CompressedTexture2D/CompressedTexture2D::5483879519506275619::1741973914::1742044865::1::::<><><>0<>0<>dc1f77f4583a393914718bae0a3f8df3<>res://.godot/imported/possible_move.png-3cfaefef75c1821ad5a425fc96144f7f.ctex::
-::res://scenes/::1743011146
-game.tscn::PackedScene::7848127622384710429::1743011146::0::1::::<><><>0<>0<><>::uid://brd8ftviegx57::::res://assets/chess-board-cells.png<>uid://bd7g78e7b30h0::::res://assets/chess-pieces.png<>uid://cv2vva6nvvfy8::::res://scripts/pieces.gd<>uid://ckeoxu25s3yjr::::res://assets/possible_move.png<>uid://fbjy30n1r4yu::::res://assets/possible_catch.png
-::res://scripts/::1742044865
-pieces.gd::GDScript/GDScript::6303857890173087165::1741973914::0::1::::<>TileMapLayer<><>0<>0<><>::
+::res://scenes/::1743013858
+game.tscn::PackedScene::7848127622384710429::1743013858::0::1::::<><><>0<>0<><>::uid://brd8ftviegx57::::res://assets/chess-board-cells.png<>uid://bd7g78e7b30h0::::res://assets/chess-pieces.png<>uid://cv2vva6nvvfy8::::res://scripts/pieces.gd<>uid://ckeoxu25s3yjr::::res://assets/possible_move.png<>uid://fbjy30n1r4yu::::res://assets/possible_catch.png
+::res://scripts/::1743013788
+pieces.gd::GDScript::6303857890173087165::1743013788::0::1::::<>TileMapLayer<><>0<>0<><>::
