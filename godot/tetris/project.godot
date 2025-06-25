@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="Tetris"
-run/main_scene="uid://dqmuml3xbgac7"
+run/main_scene="uid://bjb32l38st1td"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=607
-window/size/viewport_height=800
+window/size/viewport_width=1230
+window/size/viewport_height=660
 window/stretch/mode="canvas_items"
