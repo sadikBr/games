@@ -1,5 +1,5 @@
 {
-  "name": "learning-webgl-glsl",
+  "name": "minesweeper",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "typescript": "~5.6.2",
-    "vite": "^6.0.1"
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4"
   }
 }
