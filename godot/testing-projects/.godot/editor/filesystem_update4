@@ -1,3 +1,6 @@
 res://hand-of-cards/card_game.tscn
 res://hand-of-cards/card.tscn
 res://hand-of-cards/hand.tscn
+res://sierpinski-triangle/sierpinski_triangle.tscn
+res://sierpinski-triangle/sierpinski-triangle.gd
+res://hand-of-cards/game.gd
