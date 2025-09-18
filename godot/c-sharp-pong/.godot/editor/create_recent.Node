@@ -1,0 +1,7 @@
+Label
+Control
+Node
+CollisionShape2D
+Area2D
+AudioStreamPlayer
+Sprite2D

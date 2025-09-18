@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=3 uid="uid://fyyjkfmu1o0p"]
+
+[ext_resource type="Script" uid="uid://bwshn7ql870a4" path="res://Src/GameManager.cs" id="1_422oa"]
+[ext_resource type="Texture2D" uid="uid://ctnpy6y4bebfs" path="res://Assets/Court.png" id="1_p4d6k"]
+[ext_resource type="PackedScene" uid="uid://tdrpl3dqw73p" path="res://Scenes/Player.tscn" id="2_o18wq"]
+[ext_resource type="AudioStream" uid="uid://dj25up0xf2r0l" path="res://Assets/player_score.mp3" id="3_rw727"]
+[ext_resource type="PackedScene" uid="uid://b3ukkcaiy6in8" path="res://Scenes/Ball.tscn" id="3_uf535"]
+[ext_resource type="AudioStream" uid="uid://d11tit3chll84" path="res://Assets/enemy_score.mp3" id="4_422oa"]
+[ext_resource type="AudioStream" uid="uid://bapwqhga73v2r" path="res://Assets/bounce.mp3" id="6_xfdrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rw727"]
+size = Vector2(1280, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_422oa"]
+size = Vector2(58, 808)
+
+[sub_resource type="LabelSettings" id="LabelSettings_422oa"]
+font_size = 42
+outline_size = 4
+outline_color = Color(0.17747904, 1.9608799, 0.3573178, 0.972549)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xfdrg"]
+font_size = 42
+outline_size = 4
+outline_color = Color(0.177, 1.961, 0.357, 0.973)
+
+[node name="PongGame" type="Node2D"]
+script = ExtResource("1_422oa")
+
+[node name="Court" type="Sprite2D" parent="."]
+texture = ExtResource("1_p4d6k")
+centered = false
+
+[node name="Human" parent="." instance=ExtResource("2_o18wq")]
+position = Vector2(80, 360)
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="Human"]
+stream = ExtResource("3_rw727")
+volume_db = -13.0
+bus = &"Sound Effects"
+
+[node name="Computer" parent="." instance=ExtResource("2_o18wq")]
+position = Vector2(1200, 360)
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="Computer"]
+stream = ExtResource("4_422oa")
+volume_db = -13.0
+bus = &"Sound Effects"
+
+[node name="Ball" parent="." instance=ExtResource("3_uf535")]
+position = Vector2(640, 360)
+
+[node name="BounceSound" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource("6_xfdrg")
+volume_db = -13.0
+bus = &"Sound Effects"
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="TopWall" type="Area2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall"]
+position = Vector2(640, -22)
+shape = SubResource("RectangleShape2D_rw727")
+
+[node name="BottomWall" type="Area2D" parent="Walls"]
+position = Vector2(0, 66)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
+position = Vector2(640, 676)
+shape = SubResource("RectangleShape2D_rw727")
+
+[node name="LeftWall" type="Area2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
+position = Vector2(-29, 360)
+shape = SubResource("RectangleShape2D_422oa")
+
+[node name="RightWall" type="Area2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
+position = Vector2(1309, 360)
+shape = SubResource("RectangleShape2D_422oa")
+
+[node name="Scores" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HumanScore" type="Label" parent="Scores"]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 19.0
+offset_right = 599.0
+offset_bottom = 90.0
+text = "0"
+label_settings = SubResource("LabelSettings_422oa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComputerScore" type="Label" parent="Scores"]
+layout_mode = 0
+offset_left = 684.0
+offset_top = 19.0
+offset_right = 803.0
+offset_bottom = 90.0
+text = "0"
+label_settings = SubResource("LabelSettings_xfdrg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Human" to="." method="OnPaddleAreaEntered"]
+[connection signal="area_entered" from="Computer" to="." method="OnPaddleAreaEntered"]
+[connection signal="area_entered" from="Walls/TopWall" to="." method="OnBounceFromWall"]
+[connection signal="area_entered" from="Walls/BottomWall" to="." method="OnBounceFromWall"]
+[connection signal="area_entered" from="Walls/LeftWall" to="." method="OnLeftWallAreaEntered"]
+[connection signal="area_entered" from="Walls/RightWall" to="." method="OnRightWallAreaEntered"]
