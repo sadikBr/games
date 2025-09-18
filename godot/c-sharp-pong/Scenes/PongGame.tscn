@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fyyjkfmu1o0p"]
+[gd_scene load_steps=13 format=3 uid="uid://fyyjkfmu1o0p"]
 
 [ext_resource type="Script" uid="uid://bwshn7ql870a4" path="res://Src/GameManager.cs" id="1_422oa"]
 [ext_resource type="Texture2D" uid="uid://ctnpy6y4bebfs" path="res://Assets/Court.png" id="1_p4d6k"]
@@ -24,6 +24,12 @@ font_size = 42
 outline_size = 4
 outline_color = Color(0.177, 1.961, 0.357, 0.973)
 
+[sub_resource type="LabelSettings" id="LabelSettings_gvasv"]
+font_size = 62
+shadow_size = 10
+shadow_color = Color(0.7405524, 0.44229254, 0.5990871, 1)
+shadow_offset = Vector2(0, 0)
+
 [node name="PongGame" type="Node2D"]
 script = ExtResource("1_422oa")
 
@@ -37,7 +43,6 @@ position = Vector2(80, 360)
 [node name="ScoreSound" type="AudioStreamPlayer" parent="Human"]
 stream = ExtResource("3_rw727")
 volume_db = -13.0
-bus = &"Sound Effects"
 
 [node name="Computer" parent="." instance=ExtResource("2_o18wq")]
 position = Vector2(1200, 360)
@@ -45,7 +50,6 @@ position = Vector2(1200, 360)
 [node name="ScoreSound" type="AudioStreamPlayer" parent="Computer"]
 stream = ExtResource("4_422oa")
 volume_db = -13.0
-bus = &"Sound Effects"
 
 [node name="Ball" parent="." instance=ExtResource("3_uf535")]
 position = Vector2(640, 360)
@@ -53,7 +57,6 @@ position = Vector2(640, 360)
 [node name="BounceSound" type="AudioStreamPlayer" parent="Ball"]
 stream = ExtResource("6_xfdrg")
 volume_db = -13.0
-bus = &"Sound Effects"
 
 [node name="Walls" type="Node" parent="."]
 
@@ -105,6 +108,16 @@ offset_right = 803.0
 offset_bottom = 90.0
 text = "0"
 label_settings = SubResource("LabelSettings_xfdrg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseMessage" type="Label" parent="."]
+offset_left = 67.0
+offset_top = 130.0
+offset_right = 1213.0
+offset_bottom = 257.0
+text = "Press Escape to UNPAUSE the Game"
+label_settings = SubResource("LabelSettings_gvasv")
 horizontal_alignment = 1
 vertical_alignment = 1
 

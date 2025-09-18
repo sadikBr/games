@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KfofT2YhyS5nkpSk9t8sBqgH6nKPZO8jv7gw74ukvbjnOyV5KArO89hTGetQ5SS15GALRhkolwUB67cKNj+Z0A==",
+  "dgSpecHash": "sxeo70dpMRE=",
   "success": true,
-  "projectFilePath": "/home/bsadik/dev/games/godot/c-sharp-pong/C Sharp Pong.csproj",
+  "projectFilePath": "/home/bsadik/dev/games/godot/c-sharp-pong/CSharpPong.csproj",
   "expectedPackageFiles": [
     "/home/bsadik/.nuget/packages/godot.sourcegenerators/4.5.0/godot.sourcegenerators.4.5.0.nupkg.sha512",
     "/home/bsadik/.nuget/packages/godotsharp/4.5.0/godotsharp.4.5.0.nupkg.sha512",

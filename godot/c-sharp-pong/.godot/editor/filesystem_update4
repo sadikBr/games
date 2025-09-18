@@ -1,9 +1,3 @@
-res://Scenes/MusicPlayer.tscn
-res://Scenes/PongGame.tscn
-res://default_bus_layout.tres
-res://Src/Player.cs
-res://Scenes/Player.tscn
-res://Scenes/Ball.tscn
 res://Src/Ball.cs
-res://Src/SignalsManager.cs
+res://Scenes/PongGame.tscn
 res://Src/GameManager.cs

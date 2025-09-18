@@ -93,9 +93,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/bsadik/dev/games/godot/c-sharp-pong/C Sharp Pong.csproj",
-      "projectName": "C Sharp Pong",
-      "projectPath": "/home/bsadik/dev/games/godot/c-sharp-pong/C Sharp Pong.csproj",
+      "projectUniqueName": "/home/bsadik/dev/games/godot/c-sharp-pong/CSharpPong.csproj",
+      "projectName": "CSharpPong",
+      "projectPath": "/home/bsadik/dev/games/godot/c-sharp-pong/CSharpPong.csproj",
       "packagesPath": "/home/bsadik/.nuget/packages/",
       "outputPath": "/home/bsadik/dev/games/godot/c-sharp-pong/.godot/mono/temp/obj/",
       "projectStyle": "PackageReference",
@@ -118,7 +118,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -162,7 +168,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.119/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

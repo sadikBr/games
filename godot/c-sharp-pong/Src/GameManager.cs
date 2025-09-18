@@ -21,12 +21,14 @@ public partial class GameManager : Node2D
 
     public override void _Process(double delta)
     {
+        GetNode<Label>("PauseMessage").Visible = !IsMoving;
+
         HumanScoreLabel.Text = Scores["Human"].ToString();
         ComputerScoreLabel.Text = Scores["Computer"].ToString();
 
-        if (Input.IsActionJustPressed("ui_accept"))
+        if (Input.IsActionJustPressed("pause"))
         {
-            IsMoving = true;
+            IsMoving = !IsMoving;
         }
 
         if (IsMoving)
