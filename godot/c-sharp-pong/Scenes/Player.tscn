@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c21id1yi6h58f" path="res://Assets/Paddle.png" id="1_rpqav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
-size = Vector2(30, 202)
+size = Vector2(34, 202)
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_kyqiw")

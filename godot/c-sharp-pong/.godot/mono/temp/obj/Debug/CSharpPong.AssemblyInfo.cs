@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CSharpPong")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df146798ec47a0d85ce2eaeee9036df48073d876")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cdfb599d57709a32ad5d0d8cda62bda9b06b59e")]
 [assembly: System.Reflection.AssemblyProductAttribute("CSharpPong")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CSharpPong")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

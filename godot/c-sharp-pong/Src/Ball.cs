@@ -5,7 +5,7 @@ public partial class Ball : Area2D
     private readonly Vector2 InitalBallPosition = new Vector2(640, 360);
 
     private Vector2 VelocityVector;
-    private float VelocityMagnitude = 300f;
+    private float VelocityMagnitude = 1200f;
 
     private AudioStreamPlayer BounceSound;
 

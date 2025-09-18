@@ -92,28 +92,30 @@ public partial class GameManager : Node2D
         ball.BounceFromPaddle();
     }
 
-    private void BallOut(Area2D area)
+    private void BallOut(Area2D area, string _player)
     {
+        if (area.Name != "Ball") return;
+
+        // Pause the game
         IsMoving = false;
+
+        // Reset the ball position and velocity
         Ball ball = (Ball)area;
         ball.ResetBall();
+
+        // Update the scorers score
+        Scores[_player] += 1;
+        Player player = (Player)GetNode<Area2D>(_player);
+        player.PlayScoreSound();
     }
 
     private void OnLeftWallAreaEntered(Area2D area)
     {
-        if (area.Name != "Ball") return;
-        BallOut(area);
-        Scores["Computer"] += 1;
-        Player player = (Player)GetNode<Area2D>("Computer");
-        player.PlayScoreSound();
+        BallOut(area, "Computer");
     }
 
     private void OnRightWallAreaEntered(Area2D area)
     {
-        if (area.Name != "Ball") return;
-        BallOut(area);
-        Scores["Human"] += 1;
-        Player player = (Player)GetNode<Area2D>("Human");
-        player.PlayScoreSound();
+        BallOut(area, "Human");
     }
 }
