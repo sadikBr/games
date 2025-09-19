@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://jo78lthu5diw"]
-
-[ext_resource type="AudioStream" uid="uid://qpbs6grsxi53" path="res://assets/audio/bullet-hell-track.mp3" id="1_k6dxv"]
-
-[node name="MainMusic" type="AudioStreamPlayer"]
-stream = ExtResource("1_k6dxv")
-volume_db = -15.0
-autoplay = true
